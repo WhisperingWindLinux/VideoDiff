@@ -1,6 +1,3 @@
-import cv2
-import numpy as np
-
 from video_diff.src.processors.abstracts.video_processor import AVideoProcessor
 
 
@@ -14,16 +11,4 @@ class SpatialDitheringDetector(AVideoProcessor):
         self.need_render = True
 
     def _render(self, capture_source):
-        while True:
-            ret, frame = capture_source.read()
-            if not ret:
-                break
-
-            # for now, very simple methods are being used to study the topic
-
-            red_channel = frame[:, :, 2]
-
-            std_dev = np.std(red_channel)
-            print(f"std dev: {std_dev}")
-
-            yield red_channel
+        raise RuntimeError("Not implemented")
